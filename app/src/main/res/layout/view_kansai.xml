@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="isKansaiClickable"
+            type="com.example.travel_roulette.vo.SelectablePrefecture.Kansai" />
+
+        <variable
+            name="onClickKansaiPrefecture"
+            type="com.example.travel_roulette.binding_adapter.SelectPrefectureListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        tools:showIn="@layout/fragment_main">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/shiga"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKansaiPrefecture.invoke(23)}"
+            android:text="滋賀"
+            app:buttonEnabled="@{isKansaiClickable.shiga}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/kyoto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mie"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKansaiPrefecture.invoke(24)}"
+            android:text="三重"
+            app:buttonEnabled="@{isKansaiClickable.mie}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/nara"
+            app:layout_constraintTop_toBottomOf="@id/shiga" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/kyoto"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKansaiPrefecture.invoke(25)}"
+            android:text="京都"
+            app:buttonEnabled="@{isKansaiClickable.kyoto}"
+            app:layout_constraintEnd_toStartOf="@id/shiga"
+            app:layout_constraintStart_toEndOf="@id/hyogo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nara"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKansaiPrefecture.invoke(26)}"
+            android:text="奈良"
+            app:buttonEnabled="@{isKansaiClickable.nara}"
+            app:layout_constraintBottom_toTopOf="@id/wakayama"
+            app:layout_constraintEnd_toStartOf="@id/shiga"
+            app:layout_constraintStart_toEndOf="@id/hyogo"
+            app:layout_constraintTop_toBottomOf="@id/kyoto" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hyogo"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKansaiPrefecture.invoke(27)}"
+            android:text="兵庫"
+            app:buttonEnabled="@{isKansaiClickable.hyogo}"
+            app:layout_constraintEnd_toStartOf="@id/kyoto"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/osaka"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKansaiPrefecture.invoke(28)}"
+            android:text="大阪"
+            app:buttonEnabled="@{isKansaiClickable.osaka}"
+            app:layout_constraintEnd_toStartOf="@id/nara"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shiga" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/wakayama_top_barrier"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="nara,osaka" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/wakayama"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKansaiPrefecture.invoke(29)}"
+            android:text="和歌山"
+            app:buttonEnabled="@{isKansaiClickable.wakayama}"
+            app:layout_constraintEnd_toStartOf="@id/mie"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wakayama_top_barrier" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

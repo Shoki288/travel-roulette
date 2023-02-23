@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="isChugokuClickable"
+            type="com.example.travel_roulette.vo.SelectablePrefecture.Chugoku" />
+
+        <variable
+            name="onClickChugokuPrefecture"
+            type="com.example.travel_roulette.binding_adapter.SelectPrefectureListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        tools:showIn="@layout/fragment_main">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tottori"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(30)}"
+            android:text="鳥取"
+            app:buttonEnabled="@{isChugokuClickable.tottori}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/shimane"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/okayama"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(31)}"
+            android:text="岡山"
+            app:buttonEnabled="@{isChugokuClickable.okayama}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/hiroshima"
+            app:layout_constraintTop_toBottomOf="@id/tottori" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/shimane"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(32)}"
+            android:text="島根"
+            app:buttonEnabled="@{isChugokuClickable.shimane}"
+            app:layout_constraintEnd_toStartOf="@id/tottori"
+            app:layout_constraintStart_toEndOf="@id/yamaguchi"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hiroshima"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(33)}"
+            android:text="広島"
+            app:buttonEnabled="@{isChugokuClickable.hiroshima}"
+            app:layout_constraintEnd_toStartOf="@id/okayama"
+            app:layout_constraintStart_toEndOf="@id/yamaguchi"
+            app:layout_constraintTop_toBottomOf="@id/shimane" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/yamaguchi"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(34)}"
+            android:text="山口"
+            app:buttonEnabled="@{isChugokuClickable.yamaguchi}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/hiroshima"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

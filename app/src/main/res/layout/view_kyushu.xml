@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="isKyushuClickable"
+            type="com.example.travel_roulette.vo.SelectablePrefecture.Kyushu" />
+
+        <variable
+            name="onClickKyushuPrefecture"
+            type="com.example.travel_roulette.binding_adapter.SelectPrefectureListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        tools:showIn="@layout/fragment_main">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/hukuoka"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(39)}"
+            android:text="福岡"
+            app:buttonEnabled="@{isKyushuClickable.hukuoka}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/nagasaki"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nagasaki"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(40)}"
+            android:text="長崎"
+            app:buttonEnabled="@{isKyushuClickable.nagasaki}"
+            app:layout_constraintEnd_toStartOf="@id/hukuoka"
+            app:layout_constraintStart_toEndOf="@id/saga"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saga"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(41)}"
+            android:text="佐賀"
+            app:buttonEnabled="@{isKyushuClickable.saga}"
+            app:layout_constraintEnd_toStartOf="@id/nagasaki"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/oita"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(42)}"
+            android:text="大分"
+            app:buttonEnabled="@{isKyushuClickable.oita}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/kumamoto"
+            app:layout_constraintTop_toBottomOf="@id/hukuoka" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/miyazaki"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(43)}"
+            android:text="宮崎"
+            app:buttonEnabled="@{isKyushuClickable.miyazaki}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/kumamoto"
+            app:layout_constraintTop_toBottomOf="@id/oita" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/kumamoto"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(44)}"
+            android:text="熊本"
+            app:buttonEnabled="@{isKyushuClickable.kumamoto}"
+            app:layout_constraintBottom_toBottomOf="@id/miyazaki"
+            app:layout_constraintEnd_toStartOf="@id/oita"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nagasaki" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/kagoshima"
+            style="@style/WhiteOutLinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(45)}"
+            android:text="熊本"
+            app:buttonEnabled="@{isKyushuClickable.kagoshima}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/miyazaki" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
