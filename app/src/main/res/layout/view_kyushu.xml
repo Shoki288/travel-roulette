@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKyushuPrefecture.invoke(39)}"
             android:text="福岡"
-            app:buttonEnabled="@{isKyushuClickable.hukuoka}"
+            app:selectPrefecture="@{isKyushuClickable.hukuoka}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/nagasaki"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKyushuPrefecture.invoke(40)}"
             android:text="長崎"
-            app:buttonEnabled="@{isKyushuClickable.nagasaki}"
+            app:selectPrefecture="@{isKyushuClickable.nagasaki}"
             app:layout_constraintEnd_toStartOf="@id/hukuoka"
             app:layout_constraintStart_toEndOf="@id/saga"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKyushuPrefecture.invoke(41)}"
             android:text="佐賀"
-            app:buttonEnabled="@{isKyushuClickable.saga}"
+            app:selectPrefecture="@{isKyushuClickable.saga}"
             app:layout_constraintEnd_toStartOf="@id/nagasaki"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKyushuPrefecture.invoke(42)}"
             android:text="大分"
-            app:buttonEnabled="@{isKyushuClickable.oita}"
+            app:selectPrefecture="@{isKyushuClickable.oita}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/kumamoto"
             app:layout_constraintTop_toBottomOf="@id/hukuoka" />
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKyushuPrefecture.invoke(43)}"
             android:text="宮崎"
-            app:buttonEnabled="@{isKyushuClickable.miyazaki}"
+            app:selectPrefecture="@{isKyushuClickable.miyazaki}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/kumamoto"
             app:layout_constraintTop_toBottomOf="@id/oita" />
@@ -88,7 +88,7 @@
             android:layout_height="0dp"
             android:onClick="@{() -> onClickKyushuPrefecture.invoke(44)}"
             android:text="熊本"
-            app:buttonEnabled="@{isKyushuClickable.kumamoto}"
+            app:selectPrefecture="@{isKyushuClickable.kumamoto}"
             app:layout_constraintBottom_toBottomOf="@id/miyazaki"
             app:layout_constraintEnd_toStartOf="@id/oita"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKyushuPrefecture.invoke(45)}"
             android:text="熊本"
-            app:buttonEnabled="@{isKyushuClickable.kagoshima}"
+            app:selectPrefecture="@{isKyushuClickable.kagoshima}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/miyazaki" />

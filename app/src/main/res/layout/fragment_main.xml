@@ -27,9 +27,12 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> viewModel.onClickHokkaido()}"
             android:text="北海道"
-            app:buttonEnabled="@{viewModel.isHokkaidoSelects().enable}"
+            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintBottom_toTopOf="@id/tohoku"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:selectPrefecture="@{viewModel.isHokkaidoSelects().enable}" />
 
         <!-- 東北 -->
         <include
@@ -39,10 +42,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:isTohokuClickable="@{viewModel.isTohokuSelects()}"
+            app:layout_constraintBottom_toTopOf="@id/kanto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tohoku_line"
             app:layout_constraintTop_toBottomOf="@id/hokkaido"
-            app:onClickTohokuPrefecture="@{(index) -> false}" />
+            app:onClickTohokuPrefecture="@{(index) -> Unit.INSTANCE}" />
 
         <!-- 関東 -->
         <include
@@ -51,10 +55,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:isKantoClickable="@{viewModel.isKantoSelects()}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tohoku_line"
             app:layout_constraintTop_toBottomOf="@id/tohoku"
-            app:onClickKantoPrefecture="@{(index) -> false}" />
+            app:onClickKantoPrefecture="@{(index) -> Unit.INSTANCE}" />
 
         <!-- 中部 -->
         <include
@@ -67,7 +72,7 @@
             app:layout_constraintEnd_toEndOf="@id/tohoku_line"
             app:layout_constraintStart_toStartOf="@id/chubu_line"
             app:layout_constraintTop_toTopOf="@id/kanto"
-            app:onClickChubuPrefecture="@{(index) -> false}" />
+            app:onClickChubuPrefecture="@{(index) -> Unit.INSTANCE}" />
 
         <include
             android:id="@+id/chubu_side"
@@ -78,7 +83,8 @@
             app:layout_constraintEnd_toEndOf="@id/chubu_line"
             app:layout_constraintStart_toStartOf="@id/chubu_side_line"
             app:layout_constraintTop_toTopOf="@id/chubu"
-            app:onClickChubuSidePrefecture="@{(index) -> false}" />
+            app:layout_constraintVertical_bias="0"
+            app:onClickChubuSidePrefecture="@{(index) -> Unit.INSTANCE}" />
 
         <!-- 関西 -->
         <include
@@ -87,10 +93,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:isKansaiClickable="@{viewModel.isKansaiSelects()}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/chubu_line"
             app:layout_constraintStart_toStartOf="@id/kansai_line"
             app:layout_constraintTop_toBottomOf="@id/chubu_side"
-            app:onClickKansaiPrefecture="@{(index) -> false}" />
+            app:layout_constraintVertical_bias="0"
+            app:onClickKansaiPrefecture="@{(index) -> Unit.INSTANCE}" />
 
         <!-- 中国 -->
         <include
@@ -102,7 +110,7 @@
             app:layout_constraintEnd_toStartOf="@id/kansai"
             app:layout_constraintStart_toStartOf="@id/chugoku_line"
             app:layout_constraintTop_toTopOf="@id/kansai"
-            app:onClickChugokuPrefecture="@{(index) -> false}" />
+            app:onClickChugokuPrefecture="@{(index) -> Unit.INSTANCE}" />
 
         <!-- 四国 -->
         <include
@@ -112,10 +120,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             app:isShikokuClickable="@{viewModel.isShikokuSelects()}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/kansai_line"
             app:layout_constraintStart_toStartOf="@id/chugoku_line"
             app:layout_constraintTop_toBottomOf="@id/chugoku"
-            app:onClickShikokuPrefecture="@{(index) -> false}" />
+            app:layout_constraintVertical_bias="0"
+            app:onClickShikokuPrefecture="@{(index) -> Unit.INSTANCE}" />
 
         <!-- 九州 -->
         <include
@@ -125,10 +135,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             app:isKyushuClickable="@{viewModel.isKyushuSelects()}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/chugoku"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/chugoku"
-            app:onClickKyushuPrefecture="@{(index) -> false}" />
+            app:layout_constraintVertical_bias="0"
+            app:onClickKyushuPrefecture="@{(index) -> Unit.INSTANCE}" />
 
         <!-- 沖縄 -->
         <com.google.android.material.button.MaterialButton
@@ -137,12 +149,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
-            android:layout_marginTop="236dp"
             android:onClick="@{() -> viewModel.onClickOkinawa()}"
             android:text="沖縄"
-            app:buttonEnabled="@{viewModel.isOkinawaSelects().enable}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/okinawa_top_line"
+            app:selectPrefecture="@{viewModel.isOkinawaSelects().enable}" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/tohoku_line"
@@ -178,6 +189,13 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/okinawa_top_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

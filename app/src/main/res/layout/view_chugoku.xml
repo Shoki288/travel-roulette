@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(30)}"
             android:text="鳥取"
-            app:buttonEnabled="@{isChugokuClickable.tottori}"
+            app:selectPrefecture="@{isChugokuClickable.tottori}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/shimane"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(31)}"
             android:text="岡山"
-            app:buttonEnabled="@{isChugokuClickable.okayama}"
+            app:selectPrefecture="@{isChugokuClickable.okayama}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/hiroshima"
             app:layout_constraintTop_toBottomOf="@id/tottori" />
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(32)}"
             android:text="島根"
-            app:buttonEnabled="@{isChugokuClickable.shimane}"
+            app:selectPrefecture="@{isChugokuClickable.shimane}"
             app:layout_constraintEnd_toStartOf="@id/tottori"
             app:layout_constraintStart_toEndOf="@id/yamaguchi"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(33)}"
             android:text="広島"
-            app:buttonEnabled="@{isChugokuClickable.hiroshima}"
+            app:selectPrefecture="@{isChugokuClickable.hiroshima}"
             app:layout_constraintEnd_toStartOf="@id/okayama"
             app:layout_constraintStart_toEndOf="@id/yamaguchi"
             app:layout_constraintTop_toBottomOf="@id/shimane" />
@@ -77,7 +77,7 @@
             android:layout_height="0dp"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(34)}"
             android:text="山口"
-            app:buttonEnabled="@{isChugokuClickable.yamaguchi}"
+            app:selectPrefecture="@{isChugokuClickable.yamaguchi}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/hiroshima"
             app:layout_constraintStart_toStartOf="parent"

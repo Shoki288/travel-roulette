@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(1)}"
             android:text="青森"
-            app:buttonEnabled="@{isTohokuClickable.aomori}"
+            app:selectPrefecture="@{isTohokuClickable.aomori}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
             android:layout_height="match_parent"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(2)}"
             android:text="秋\n田"
-            app:buttonEnabled="@{isTohokuClickable.akita}"
+            app:selectPrefecture="@{isTohokuClickable.akita}"
             app:layout_constraintEnd_toStartOf="@id/iwate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/aomori" />
@@ -53,7 +53,7 @@
             android:layout_height="match_parent"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(3)}"
             android:text="岩\n手"
-            app:buttonEnabled="@{isTohokuClickable.iwate}"
+            app:selectPrefecture="@{isTohokuClickable.iwate}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/akita"
             app:layout_constraintTop_toBottomOf="@id/aomori" />
@@ -65,7 +65,7 @@
             android:layout_height="match_parent"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(4)}"
             android:text="山\n形"
-            app:buttonEnabled="@{isTohokuClickable.yamagata}"
+            app:selectPrefecture="@{isTohokuClickable.yamagata}"
             app:layout_constraintEnd_toStartOf="@id/miyagi"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/akita" />
@@ -77,7 +77,7 @@
             android:layout_height="match_parent"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(5)}"
             android:text="宮\n城"
-            app:buttonEnabled="@{isTohokuClickable.miyagi}"
+            app:selectPrefecture="@{isTohokuClickable.miyagi}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/yamagata"
             app:layout_constraintTop_toBottomOf="@id/akita" />
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(6)}"
             android:text="福島"
-            app:buttonEnabled="@{isTohokuClickable.hukushima}"
+            app:selectPrefecture="@{isTohokuClickable.hukushima}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/miyagi" />

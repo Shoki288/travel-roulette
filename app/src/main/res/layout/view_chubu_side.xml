@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChubuSidePrefecture.invoke(21)}"
             android:text="石川"
-            app:buttonEnabled="@{isChubuClickable.ishikawa}"
+            app:selectPrefecture="@{isChubuClickable.ishikawa}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChubuSidePrefecture.invoke(22)}"
             android:text="福井"
-            app:buttonEnabled="@{isChubuClickable.hukui}"
+            app:selectPrefecture="@{isChubuClickable.hukui}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ishikawa" />

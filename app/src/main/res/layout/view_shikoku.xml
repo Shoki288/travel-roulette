@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickShikokuPrefecture.invoke(35)}"
             android:text="香川"
-            app:buttonEnabled="@{isShikokuClickable.kagawa}"
+            app:selectPrefecture="@{isShikokuClickable.kagawa}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ehime"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickShikokuPrefecture.invoke(36)}"
             android:text="徳島"
-            app:buttonEnabled="@{isShikokuClickable.tokushima}"
+            app:selectPrefecture="@{isShikokuClickable.tokushima}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/kochi"
             app:layout_constraintTop_toBottomOf="@id/kagawa" />
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickShikokuPrefecture.invoke(37)}"
             android:text="愛媛"
-            app:buttonEnabled="@{isShikokuClickable.ehime}"
+            app:selectPrefecture="@{isShikokuClickable.ehime}"
             app:layout_constraintEnd_toStartOf="@id/kagawa"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickShikokuPrefecture.invoke(38)}"
             android:text="高知"
-            app:buttonEnabled="@{isShikokuClickable.kochi}"
+            app:selectPrefecture="@{isShikokuClickable.kochi}"
             app:layout_constraintEnd_toStartOf="@id/tokushima"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ehime" />
