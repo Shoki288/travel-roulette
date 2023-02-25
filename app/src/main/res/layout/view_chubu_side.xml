@@ -4,8 +4,12 @@
     <data>
 
         <variable
+            name="isAreaMap"
+            type="Boolean" />
+
+        <variable
             name="isChubuClickable"
-            type="com.example.travel_roulette.vo.SelectablePrefecture.Chubu" />
+            type="com.example.travel_roulette.vo.PrefectureSeed" />
 
         <variable
             name="onClickChubuSidePrefecture"
@@ -18,8 +22,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
+        app:isDisable="@{isAreaMap}"
         tools:showIn="@layout/fragment_main">
 
         <com.google.android.material.button.MaterialButton
@@ -29,7 +32,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChubuSidePrefecture.invoke(21)}"
             android:text="石川"
-            app:selectPrefecture="@{isChubuClickable.ishikawa}"
+            app:canSelectPrefecture="@{isChubuClickable.ishikawa}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +45,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChubuSidePrefecture.invoke(22)}"
             android:text="福井"
-            app:selectPrefecture="@{isChubuClickable.hukui}"
+            app:canSelectPrefecture="@{isChubuClickable.hukui}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ishikawa" />

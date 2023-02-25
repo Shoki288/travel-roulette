@@ -4,8 +4,12 @@
     <data>
 
         <variable
+            name="isAreaMap"
+            type="Boolean" />
+
+        <variable
             name="isKansaiClickable"
-            type="com.example.travel_roulette.vo.SelectablePrefecture.Kansai" />
+            type="com.example.travel_roulette.vo.PrefectureSeed" />
 
         <variable
             name="onClickKansaiPrefecture"
@@ -18,8 +22,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
+        app:isDisable="@{isAreaMap}"
         tools:showIn="@layout/fragment_main">
 
         <com.google.android.material.button.MaterialButton
@@ -29,7 +32,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKansaiPrefecture.invoke(23)}"
             android:text="滋賀"
-            app:selectPrefecture="@{isKansaiClickable.shiga}"
+            app:canSelectPrefecture="@{isKansaiClickable.shiga}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/kyoto"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +45,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKansaiPrefecture.invoke(24)}"
             android:text="三重"
-            app:selectPrefecture="@{isKansaiClickable.mie}"
+            app:canSelectPrefecture="@{isKansaiClickable.mie}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/nara"
             app:layout_constraintTop_toBottomOf="@id/shiga" />
@@ -53,7 +58,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKansaiPrefecture.invoke(25)}"
             android:text="京都"
-            app:selectPrefecture="@{isKansaiClickable.kyoto}"
+            app:canSelectPrefecture="@{isKansaiClickable.kyoto}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/shiga"
             app:layout_constraintStart_toEndOf="@id/hyogo"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +71,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKansaiPrefecture.invoke(26)}"
             android:text="奈良"
-            app:selectPrefecture="@{isKansaiClickable.nara}"
+            app:canSelectPrefecture="@{isKansaiClickable.nara}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintBottom_toTopOf="@id/wakayama"
             app:layout_constraintEnd_toStartOf="@id/shiga"
             app:layout_constraintStart_toEndOf="@id/hyogo"
@@ -78,7 +85,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKansaiPrefecture.invoke(27)}"
             android:text="兵庫"
-            app:selectPrefecture="@{isKansaiClickable.hyogo}"
+            app:canSelectPrefecture="@{isKansaiClickable.hyogo}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/kyoto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -90,7 +98,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKansaiPrefecture.invoke(28)}"
             android:text="大阪"
-            app:selectPrefecture="@{isKansaiClickable.osaka}"
+            app:canSelectPrefecture="@{isKansaiClickable.osaka}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/nara"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/shiga" />
@@ -110,7 +119,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickKansaiPrefecture.invoke(29)}"
             android:text="和歌山"
-            app:selectPrefecture="@{isKansaiClickable.wakayama}"
+            app:canSelectPrefecture="@{isKansaiClickable.wakayama}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/mie"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/wakayama_top_barrier" />

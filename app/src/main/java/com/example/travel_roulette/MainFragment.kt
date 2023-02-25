@@ -16,7 +16,26 @@ class MainFragment: Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
         withBinding<FragmentMainBinding> { binding ->
             binding.viewModel = viewModel
+
+            // 中部地方は形が複雑で２つのViewになっているためrippleをここでそろえる
+            binding.chubu.root.setOnClickListener {
+                if (viewModel.onClickChubuArea.value.not()) {
+                    viewModel.onClickChubu()
+                    binding.chubuSide.root.onDoRippleEffect()
+                }
+            }
+            binding.chubuSide.root.setOnClickListener {
+                if (viewModel.onClickChubuArea.value.not()) {
+                    viewModel.onClickChubu()
+                    binding.chubu.root.onDoRippleEffect()
+                }
+            }
         }
     }
 
+    private fun View.onDoRippleEffect() {
+        this.isPressed = true
+        this.isPressed = false
+        this.performClick()
+    }
 }

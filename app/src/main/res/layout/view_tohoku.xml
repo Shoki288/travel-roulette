@@ -4,8 +4,12 @@
     <data>
 
         <variable
+            name="isAreaMap"
+            type="Boolean" />
+
+        <variable
             name="isTohokuClickable"
-            type="com.example.travel_roulette.vo.SelectablePrefecture.Tohoku" />
+            type="com.example.travel_roulette.vo.PrefectureSeed" />
 
         <variable
             name="onClickTohokuPrefecture"
@@ -18,69 +22,73 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
+        app:isDisable="@{isAreaMap}"
         tools:showIn="@layout/fragment_main">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/aomori"
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(1)}"
             android:text="青森"
-            app:selectPrefecture="@{isTohokuClickable.aomori}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:canSelectPrefecture="@{isTohokuClickable.aomori}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/akita"
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(2)}"
-            android:text="秋\n田"
-            app:selectPrefecture="@{isTohokuClickable.akita}"
+            android:text="秋田"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/iwate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/aomori" />
+            app:layout_constraintTop_toBottomOf="@id/aomori"
+            app:canSelectPrefecture="@{isTohokuClickable.akita}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/iwate"
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(3)}"
-            android:text="岩\n手"
-            app:selectPrefecture="@{isTohokuClickable.iwate}"
+            android:text="岩手"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/akita"
-            app:layout_constraintTop_toBottomOf="@id/aomori" />
+            app:layout_constraintTop_toBottomOf="@id/aomori"
+            app:canSelectPrefecture="@{isTohokuClickable.iwate}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/yamagata"
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(4)}"
-            android:text="山\n形"
-            app:selectPrefecture="@{isTohokuClickable.yamagata}"
+            android:text="山形"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/miyagi"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/akita" />
+            app:layout_constraintTop_toBottomOf="@id/akita"
+            app:canSelectPrefecture="@{isTohokuClickable.yamagata}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/miyagi"
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(5)}"
-            android:text="宮\n城"
-            app:selectPrefecture="@{isTohokuClickable.miyagi}"
+            android:text="宮城"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/yamagata"
-            app:layout_constraintTop_toBottomOf="@id/akita" />
+            app:layout_constraintTop_toBottomOf="@id/akita"
+            app:canSelectPrefecture="@{isTohokuClickable.miyagi}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/hukushima"
@@ -89,10 +97,11 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickTohokuPrefecture.invoke(6)}"
             android:text="福島"
-            app:selectPrefecture="@{isTohokuClickable.hukushima}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/miyagi" />
+            app:layout_constraintTop_toBottomOf="@id/miyagi"
+            app:canSelectPrefecture="@{isTohokuClickable.hukushima}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

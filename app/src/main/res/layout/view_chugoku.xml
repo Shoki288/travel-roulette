@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
+            name="isAreaMap"
+            type="Boolean" />
+
+        <variable
             name="isChugokuClickable"
-            type="com.example.travel_roulette.vo.SelectablePrefecture.Chugoku" />
+            type="com.example.travel_roulette.vo.PrefectureSeed" />
 
         <variable
             name="onClickChugokuPrefecture"
@@ -13,13 +19,10 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
+        android:layout_height="wrap_content"
+        app:isDisable="@{isAreaMap}"
         tools:showIn="@layout/fragment_main">
 
         <com.google.android.material.button.MaterialButton
@@ -29,7 +32,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(30)}"
             android:text="鳥取"
-            app:selectPrefecture="@{isChugokuClickable.tottori}"
+            app:canSelectPrefecture="@{isChugokuClickable.tottori}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/shimane"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +45,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(31)}"
             android:text="岡山"
-            app:selectPrefecture="@{isChugokuClickable.okayama}"
+            app:canSelectPrefecture="@{isChugokuClickable.okayama}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/hiroshima"
             app:layout_constraintTop_toBottomOf="@id/tottori" />
@@ -53,7 +58,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(32)}"
             android:text="島根"
-            app:selectPrefecture="@{isChugokuClickable.shimane}"
+            app:canSelectPrefecture="@{isChugokuClickable.shimane}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/tottori"
             app:layout_constraintStart_toEndOf="@id/yamaguchi"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +71,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(33)}"
             android:text="広島"
-            app:selectPrefecture="@{isChugokuClickable.hiroshima}"
+            app:canSelectPrefecture="@{isChugokuClickable.hiroshima}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/okayama"
             app:layout_constraintStart_toEndOf="@id/yamaguchi"
             app:layout_constraintTop_toBottomOf="@id/shimane" />
@@ -77,11 +84,13 @@
             android:layout_height="0dp"
             android:onClick="@{() -> onClickChugokuPrefecture.invoke(34)}"
             android:text="山口"
-            app:selectPrefecture="@{isChugokuClickable.yamaguchi}"
+            app:canSelectPrefecture="@{isChugokuClickable.yamaguchi}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/hiroshima"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,8 +4,12 @@
     <data>
 
         <variable
+            name="isAreaMap"
+            type="Boolean" />
+
+        <variable
             name="isShikokuClickable"
-            type="com.example.travel_roulette.vo.SelectablePrefecture.Shikoku" />
+            type="com.example.travel_roulette.vo.PrefectureSeed" />
 
         <variable
             name="onClickShikokuPrefecture"
@@ -17,8 +21,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
+        app:isDisable="@{isAreaMap}"
         tools:showIn="@layout/fragment_main">
 
         <com.google.android.material.button.MaterialButton
@@ -28,10 +31,11 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickShikokuPrefecture.invoke(35)}"
             android:text="香川"
-            app:selectPrefecture="@{isShikokuClickable.kagawa}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ehime"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:canSelectPrefecture="@{isShikokuClickable.kagawa}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tokushima"
@@ -40,10 +44,11 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickShikokuPrefecture.invoke(36)}"
             android:text="徳島"
-            app:selectPrefecture="@{isShikokuClickable.tokushima}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/kochi"
-            app:layout_constraintTop_toBottomOf="@id/kagawa" />
+            app:layout_constraintTop_toBottomOf="@id/kagawa"
+            app:canSelectPrefecture="@{isShikokuClickable.tokushima}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ehime"
@@ -52,10 +57,11 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickShikokuPrefecture.invoke(37)}"
             android:text="愛媛"
-            app:selectPrefecture="@{isShikokuClickable.ehime}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/kagawa"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:canSelectPrefecture="@{isShikokuClickable.ehime}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/kochi"
@@ -64,10 +70,11 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> onClickShikokuPrefecture.invoke(38)}"
             android:text="高知"
-            app:selectPrefecture="@{isShikokuClickable.kochi}"
+            app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/tokushima"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ehime" />
+            app:layout_constraintTop_toBottomOf="@id/ehime"
+            app:canSelectPrefecture="@{isShikokuClickable.kochi}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
