@@ -3,8 +3,6 @@ package com.example.travel_roulette
 import androidx.annotation.IntRange
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.travel_roulette.vo.Area
-import com.example.travel_roulette.vo.Prefecture
 import com.example.travel_roulette.vo.PrefectureSeed
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
@@ -22,9 +20,6 @@ class MainViewModel : ViewModel() {
     val isOkinawa = _prefectureInArea.distinctUntilChangedBy { it.isOkinawa }.map {
         it.isOkinawa
     }.stateIn(viewModelScope, SharingStarted.Eagerly, false)
-
-    private val _selectArea = MutableStateFlow<Area?>(null)
-    val selectArea = _selectArea.asStateFlow()
 
     private val _onClickChubuArea = MutableStateFlow(false)
     val onClickChubuArea = _onClickChubuArea.asStateFlow()
@@ -133,10 +128,6 @@ class MainViewModel : ViewModel() {
         _prefectureInArea.update {
             it.copy(isOkinawa = it.isOkinawa.not())
         }
-    }
-
-    fun onClickArea(area: Area) {
-        _selectArea.value = area
     }
 
     fun onClickChubu() {

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.travel_roulette.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="64dp">
+
+        <include
+            android:id="@+id/root_kansai"
+            layout="@layout/view_kansai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:isAreaMap="@{true}"
+            app:isKansaiClickable="@{viewModel.prefectureInArea}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onClickKansaiPrefecture="@{(index) -> viewModel.onClickKansai(index)}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

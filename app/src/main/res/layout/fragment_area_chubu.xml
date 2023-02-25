@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.travel_roulette.MainViewModel" />
+
+        <import type="kotlin.Unit" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="64dp">
+
+        <include
+            android:id="@+id/chubu"
+            layout="@layout/view_chubu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:isAreaMap="@{true}"
+            app:isChubuClickable="@{viewModel.prefectureInArea}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintStart_toEndOf="@id/chubu_side"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onClickChubuPrefecture="@{(index) -> viewModel.onClickChubu(index)}" />
+
+        <include
+            android:id="@+id/chubu_side"
+            layout="@layout/view_chubu_side"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:isAreaMap="@{true}"
+            app:isChubuClickable="@{viewModel.prefectureInArea}"
+            app:layout_constraintEnd_toStartOf="@id/chubu"
+            app:layout_constraintHorizontal_weight="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/chubu"
+            app:onClickChubuSidePrefecture="@{(index) -> viewModel.onClickChubu(index)}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

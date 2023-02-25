@@ -8,9 +8,15 @@
             name="viewModel"
             type="com.example.travel_roulette.MainViewModel" />
 
+        <variable
+            name="owner"
+            type="com.example.travel_roulette.MainFragment" />
+
         <import type="com.example.travel_roulette.vo.PrefectureSeed" />
 
         <import type="kotlin.Unit" />
+
+        <import type="com.example.travel_roulette.vo.Area" />
 
     </data>
 
@@ -26,13 +32,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:onClick="@{() -> viewModel.onClickHokkaido()}"
-            android:text="北海道"
+            android:text="@string/prefecture_hokkaido"
+            app:canSelectPrefecture="@{viewModel.isHokkaido()}"
             app:layout_constraintBottom_toTopOf="@id/tohoku"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:canSelectPrefecture="@{viewModel.isHokkaido()}" />
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <!-- 東北 -->
         <include
@@ -41,8 +47,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:onClick="@{() -> owner.onClickArea(Area.Tohoku)}"
             app:isAreaMap="@{false}"
-            android:onClick="@{() -> viewModel.onClickTohoku(1)}"
             app:isTohokuClickable="@{viewModel.prefectureInArea}"
             app:layout_constraintBottom_toTopOf="@id/kanto"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +62,7 @@
             layout="@layout/view_kanto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> owner.onClickArea(Area.Kanto)}"
             app:isAreaMap="@{false}"
             app:isKantoClickable="@{viewModel.prefectureInArea}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -70,6 +77,7 @@
             layout="@layout/view_chubu"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:onClick="@{() -> owner.onClickArea(Area.Chubu)}"
             app:isAreaMap="@{false}"
             app:isChubuClickable="@{viewModel.prefectureInArea}"
             app:layout_constraintBottom_toBottomOf="@id/kanto"
@@ -83,6 +91,7 @@
             layout="@layout/view_chubu_side"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> owner.onClickArea(Area.Chubu)}"
             app:isAreaMap="@{false}"
             app:isChubuClickable="@{viewModel.prefectureInArea}"
             app:layout_constraintEnd_toEndOf="@id/chubu_line"
@@ -97,6 +106,7 @@
             layout="@layout/view_kansai"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> owner.onClickArea(Area.Kansai)}"
             app:isAreaMap="@{false}"
             app:isKansaiClickable="@{viewModel.prefectureInArea}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -112,6 +122,7 @@
             layout="@layout/view_chugoku"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> owner.onClickArea(Area.Chugoku)}"
             app:isAreaMap="@{false}"
             app:isChugokuClickable="@{viewModel.prefectureInArea}"
             app:layout_constraintEnd_toStartOf="@id/kansai"
@@ -126,6 +137,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:onClick="@{() -> owner.onClickArea(Area.Shikoku)}"
             app:isAreaMap="@{false}"
             app:isShikokuClickable="@{viewModel.prefectureInArea}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -142,6 +154,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
+            android:onClick="@{() -> owner.onClickArea(Area.Kyushu)}"
             app:isAreaMap="@{false}"
             app:isKyushuClickable="@{viewModel.prefectureInArea}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -159,10 +172,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
             android:onClick="@{() -> viewModel.onClickOkinawa()}"
-            android:text="沖縄"
+            android:text="@string/prefecture_okinawa"
+            app:canSelectPrefecture="@{viewModel.isOkinawa()}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/okinawa_top_line"
-            app:canSelectPrefecture="@{viewModel.isOkinawa()}" />
+            app:layout_constraintTop_toTopOf="@id/okinawa_top_line" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/tohoku_line"

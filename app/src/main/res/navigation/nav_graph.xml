@@ -1,12 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.travel_roulette.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_chubuAreaFragment"
+            app:destination="@id/chubuAreaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_chugokuAreaFragment"
+            app:destination="@id/chugokuAreaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_kantoAreaFragment"
+            app:destination="@id/kantoAreaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_kansaiAreaFragment"
+            app:destination="@id/kansaiAreaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_shikokuAreaFragment"
+            app:destination="@id/shikokuAreaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_kyushuAreaFragment"
+            app:destination="@id/kyushuAreaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_tohokuAreaFragment"
+            app:destination="@id/tohokuAreaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chubuAreaFragment"
+        android:name="com.example.travel_roulette.area.ChubuAreaFragment"
+        android:label="ChubuAreaFragment" />
+    <fragment
+        android:id="@+id/kansaiAreaFragment"
+        android:name="com.example.travel_roulette.area.KansaiAreaFragment"
+        android:label="KansaiAreaFragment" />
+    <fragment
+        android:id="@+id/kyushuAreaFragment"
+        android:name="com.example.travel_roulette.area.KyushuAreaFragment"
+        android:label="KyushuAreaFragment" />
+    <fragment
+        android:id="@+id/kantoAreaFragment"
+        android:name="com.example.travel_roulette.area.KantoAreaFragment"
+        android:label="KantoAreaFragment" />
+    <fragment
+        android:id="@+id/chugokuAreaFragment"
+        android:name="com.example.travel_roulette.area.ChugokuAreaFragment"
+        android:label="ChugokuAreaFragment" />
+    <fragment
+        android:id="@+id/shikokuAreaFragment"
+        android:name="com.example.travel_roulette.area.ShikokuAreaFragment"
+        android:label="ShikokuAreaFragment" />
+    <fragment
+        android:id="@+id/tohokuAreaFragment"
+        android:name="com.example.travel_roulette.area.TohokuAreaFragment"
+        android:label="TohokuAreaFragment" />
 
 </navigation>
