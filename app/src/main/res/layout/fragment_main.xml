@@ -19,6 +19,8 @@
 
         <import type="com.example.travel_roulette.vo.Area" />
 
+        <import type="android.text.TextUtils" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -181,11 +183,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="12dp"
             android:layout_marginBottom="24dp"
+            android:textSize="16sp"
+            android:text="@{@string/selected_prefecture(viewModel.chosePrefecture)}"
             app:layout_constraintBottom_toTopOf="@id/roulette_button"
-            app:layout_constraintStart_toStartOf="@id/roulette_button"
-            tools:text="選ばれたのは" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:visibleOrGone="@{!TextUtils.isEmpty(viewModel.chosePrefecture)}"
+            tools:text="選ばれたのは東京都でした" />
 
 
         <com.google.android.material.button.MaterialButton
