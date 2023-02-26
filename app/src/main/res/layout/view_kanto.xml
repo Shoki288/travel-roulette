@@ -8,12 +8,16 @@
             type="Boolean" />
 
         <variable
-            name="isKantoClickable"
-            type="com.example.travel_roulette.vo.PrefectureSeed" />
+            name="kantoPrefecturesState"
+            type="List&lt;com.example.travel_roulette.vo.PrefectureState>" />
 
         <variable
             name="onClickKantoPrefecture"
             type="com.example.travel_roulette.binding_adapter.SelectPrefectureListener" />
+
+        <import type="java.util.List" />
+
+        <import type="com.example.travel_roulette.vo.Prefecture" />
 
     </data>
 
@@ -30,10 +34,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKantoPrefecture.invoke(7)}"
+            android:onClick="@{() -> onClickKantoPrefecture.invoke(Prefecture.Gunma)}"
             android:text="@string/prefecture_gunma"
+            app:canSelectPrefecture="@{kantoPrefecturesState[Prefecture.Gunma.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKantoClickable.gunma}"
             app:layout_constraintEnd_toStartOf="@id/tochigi"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,10 +47,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKantoPrefecture.invoke(8)}"
+            android:onClick="@{() -> onClickKantoPrefecture.invoke(Prefecture.Tochigi)}"
             android:text="@string/prefecture_tochigi"
+            app:canSelectPrefecture="@{kantoPrefecturesState[Prefecture.Tochigi.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKantoClickable.tochigi}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/gunma"
             app:layout_constraintTop_toTopOf="parent" />
@@ -56,10 +60,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKantoPrefecture.invoke(9)}"
+            android:onClick="@{() -> onClickKantoPrefecture.invoke(Prefecture.Saitama)}"
             android:text="@string/prefecture_saitama"
+            app:canSelectPrefecture="@{kantoPrefecturesState[Prefecture.Saitama.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKantoClickable.saitama}"
             app:layout_constraintEnd_toStartOf="@id/ibaraki"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/gunma" />
@@ -69,10 +73,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKantoPrefecture.invoke(10)}"
+            android:onClick="@{() -> onClickKantoPrefecture.invoke(Prefecture.Ibaraki)}"
             android:text="@string/prefecture_ibaraki"
+            app:canSelectPrefecture="@{kantoPrefecturesState[Prefecture.Ibaraki.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKantoClickable.ibaraki}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/saitama"
             app:layout_constraintTop_toBottomOf="@id/tochigi" />
@@ -82,10 +86,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKantoPrefecture.invoke(11)}"
+            android:onClick="@{() -> onClickKantoPrefecture.invoke(Prefecture.Tokyo)}"
             android:text="@string/prefecture_tokyo"
+            app:canSelectPrefecture="@{kantoPrefecturesState[Prefecture.Tokyo.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKantoClickable.tokyo}"
             app:layout_constraintEnd_toStartOf="@id/chiba"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/saitama" />
@@ -95,10 +99,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:onClick="@{() -> onClickKantoPrefecture.invoke(12)}"
+            android:onClick="@{() -> onClickKantoPrefecture.invoke(Prefecture.Chiba)}"
             android:text="@string/prefecture_chiba"
+            app:canSelectPrefecture="@{kantoPrefecturesState[Prefecture.Chiba.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKantoClickable.chiba}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tokyo"
@@ -109,10 +113,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKantoPrefecture.invoke(13)}"
+            android:onClick="@{() -> onClickKantoPrefecture.invoke(Prefecture.Kanagawa)}"
             android:text="@string/prefecture_kanagawa"
+            app:canSelectPrefecture="@{kantoPrefecturesState[Prefecture.Kanagawa.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKantoClickable.kanagawa}"
             app:layout_constraintEnd_toStartOf="@id/chiba"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tokyo" />

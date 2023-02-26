@@ -22,13 +22,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:isAreaMap="@{true}"
-            app:isChubuClickable="@{viewModel.prefectureInArea}"
+            app:chubuPrefecturesState="@{viewModel.prefectureInArea}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="0.7"
             app:layout_constraintStart_toEndOf="@id/chubu_side"
             app:layout_constraintTop_toTopOf="parent"
-            app:onClickChubuPrefecture="@{(index) -> viewModel.onClickChubu(index)}" />
+            app:onClickChubuPrefecture="@{(index) -> viewModel.onClickPrefecture(index)}" />
 
         <include
             android:id="@+id/chubu_side"
@@ -36,12 +36,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:isAreaMap="@{true}"
-            app:isChubuClickable="@{viewModel.prefectureInArea}"
+            app:chubuSidePrefecturesState="@{viewModel.prefectureInArea}"
             app:layout_constraintEnd_toStartOf="@id/chubu"
             app:layout_constraintHorizontal_weight="0.3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/chubu"
-            app:onClickChubuSidePrefecture="@{(index) -> viewModel.onClickChubu(index)}" />
+            app:onClickChubuSidePrefecture="@{(index) -> viewModel.onClickPrefecture(index)}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

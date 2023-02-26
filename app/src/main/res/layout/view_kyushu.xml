@@ -2,17 +2,23 @@
 <layout>
 
     <data>
+
         <variable
             name="isAreaMap"
             type="Boolean" />
 
         <variable
-            name="isKyushuClickable"
-            type="com.example.travel_roulette.vo.PrefectureSeed" />
+            name="kyushuPrefecturesState"
+            type="List&lt;com.example.travel_roulette.vo.PrefectureState>" />
 
         <variable
             name="onClickKyushuPrefecture"
             type="com.example.travel_roulette.binding_adapter.SelectPrefectureListener" />
+
+        <import type="java.util.List" />
+
+        <import type="com.example.travel_roulette.vo.Prefecture" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -28,10 +34,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKyushuPrefecture.invoke(39)}"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(Prefecture.Hukuoka)}"
             android:text="@string/prefecture_hukuoka"
+            app:canSelectPrefecture="@{kyushuPrefecturesState[Prefecture.Hukuoka.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKyushuClickable.hukuoka}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/nagasaki"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,10 +47,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKyushuPrefecture.invoke(40)}"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(Prefecture.Nagasaki)}"
             android:text="@string/prefecture_nagasaki"
+            app:canSelectPrefecture="@{kyushuPrefecturesState[Prefecture.Nagasaki.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKyushuClickable.nagasaki}"
             app:layout_constraintEnd_toStartOf="@id/hukuoka"
             app:layout_constraintStart_toEndOf="@id/saga"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,10 +60,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKyushuPrefecture.invoke(41)}"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(Prefecture.Saga)}"
             android:text="@string/prefecture_saga"
+            app:canSelectPrefecture="@{kyushuPrefecturesState[Prefecture.Saga.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKyushuClickable.saga}"
             app:layout_constraintEnd_toStartOf="@id/nagasaki"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -67,10 +73,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKyushuPrefecture.invoke(42)}"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(Prefecture.Oita)}"
             android:text="@string/prefecture_oita"
+            app:canSelectPrefecture="@{kyushuPrefecturesState[Prefecture.Oita.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKyushuClickable.oita}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/kumamoto"
             app:layout_constraintTop_toBottomOf="@id/hukuoka" />
@@ -80,10 +86,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKyushuPrefecture.invoke(43)}"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(Prefecture.Miyazaki)}"
             android:text="@string/prefecture_miyazaki"
+            app:canSelectPrefecture="@{kyushuPrefecturesState[Prefecture.Miyazaki.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKyushuClickable.miyazaki}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/kumamoto"
             app:layout_constraintTop_toBottomOf="@id/oita" />
@@ -93,10 +99,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:onClick="@{() -> onClickKyushuPrefecture.invoke(44)}"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(Prefecture.Kumamoto)}"
             android:text="@string/prefecture_kumamoto"
+            app:canSelectPrefecture="@{kyushuPrefecturesState[Prefecture.Kumamoto.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKyushuClickable.kumamoto}"
             app:layout_constraintBottom_toBottomOf="@id/miyazaki"
             app:layout_constraintEnd_toStartOf="@id/oita"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,10 +113,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickKyushuPrefecture.invoke(45)}"
+            android:onClick="@{() -> onClickKyushuPrefecture.invoke(Prefecture.Kagoshima)}"
             android:text="@string/prefecture_kagoshima"
+            app:canSelectPrefecture="@{kyushuPrefecturesState[Prefecture.Kagoshima.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isKyushuClickable.kagoshima}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/miyazaki" />

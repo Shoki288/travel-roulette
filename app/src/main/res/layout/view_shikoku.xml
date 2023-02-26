@@ -8,12 +8,17 @@
             type="Boolean" />
 
         <variable
-            name="isShikokuClickable"
-            type="com.example.travel_roulette.vo.PrefectureSeed" />
+            name="shikokuPrefecturesState"
+            type="List&lt;com.example.travel_roulette.vo.PrefectureState>" />
 
         <variable
             name="onClickShikokuPrefecture"
             type="com.example.travel_roulette.binding_adapter.SelectPrefectureListener" />
+
+        <import type="java.util.List" />
+
+        <import type="com.example.travel_roulette.vo.Prefecture" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,9 +34,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickShikokuPrefecture.invoke(35)}"
+            android:onClick="@{() -> onClickShikokuPrefecture.invoke(Prefecture.Kagawa)}"
             android:text="@string/prefecture_kagawa"
-            app:canSelectPrefecture="@{isShikokuClickable.kagawa}"
+            app:canSelectPrefecture="@{shikokuPrefecturesState[Prefecture.Kagawa.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ehime"
@@ -42,9 +47,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickShikokuPrefecture.invoke(36)}"
+            android:onClick="@{() -> onClickShikokuPrefecture.invoke(Prefecture.Tokushima)}"
             android:text="@string/prefecture_tokushima"
-            app:canSelectPrefecture="@{isShikokuClickable.tokushima}"
+            app:canSelectPrefecture="@{shikokuPrefecturesState[Prefecture.Tokushima.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/kochi"
@@ -55,9 +60,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickShikokuPrefecture.invoke(37)}"
+            android:onClick="@{() -> onClickShikokuPrefecture.invoke(Prefecture.Ehime)}"
             android:text="@string/prefecture_ehime"
-            app:canSelectPrefecture="@{isShikokuClickable.ehime}"
+            app:canSelectPrefecture="@{shikokuPrefecturesState[Prefecture.Ehime.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/kagawa"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,9 +73,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickShikokuPrefecture.invoke(38)}"
+            android:onClick="@{() -> onClickShikokuPrefecture.invoke(Prefecture.Kochi)}"
             android:text="@string/prefecture_kochi"
-            app:canSelectPrefecture="@{isShikokuClickable.kochi}"
+            app:canSelectPrefecture="@{shikokuPrefecturesState[Prefecture.Kochi.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/tokushima"
             app:layout_constraintStart_toStartOf="parent"

@@ -48,4 +48,5 @@
     <string name="prefecture_kumamoto">熊本</string>
     <string name="prefecture_kagoshima">鹿児島</string>
     <string name="prefecture_okinawa">沖縄</string>
+    <string name="do_roulette">ルーレット\n回す</string>
 </resources>

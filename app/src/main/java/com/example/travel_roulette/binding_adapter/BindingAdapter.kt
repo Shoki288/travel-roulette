@@ -5,13 +5,15 @@ import android.widget.Button
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.example.travel_roulette.R
+import com.example.travel_roulette.vo.Prefecture
+import com.example.travel_roulette.vo.PrefectureState
 
 @BindingAdapter("canSelectPrefecture")
-fun Button.selectPrefecture(canSelect: Boolean) {
-    val bgColor = if (canSelect) {
-        R.color.white
-    } else {
-        R.color.md_theme_light_outline
+fun Button.selectPrefecture(state: PrefectureState) {
+    val bgColor = when (state) {
+        is PrefectureState.None -> R.color.white
+        is PrefectureState.Select -> R.color.md_theme_light_primaryContainer
+        is PrefectureState.UnSelectable -> R.color.md_theme_light_outline
     }
     this.setBackgroundColor(ContextCompat.getColor(context, bgColor))
 }
@@ -23,5 +25,5 @@ fun View.setDisable(isDisable: Boolean) {
 }
 
 interface SelectPrefectureListener {
-    operator fun invoke(index: Int)
+    operator fun invoke(prefecture: Prefecture)
 }

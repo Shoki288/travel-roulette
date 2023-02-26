@@ -10,12 +10,16 @@
             type="Boolean" />
 
         <variable
-            name="isChugokuClickable"
-            type="com.example.travel_roulette.vo.PrefectureSeed" />
+            name="chugokuPrefecturesState"
+            type="List&lt;com.example.travel_roulette.vo.PrefectureState>" />
 
         <variable
             name="onClickChugokuPrefecture"
             type="com.example.travel_roulette.binding_adapter.SelectPrefectureListener" />
+
+        <import type="java.util.List" />
+
+        <import type="com.example.travel_roulette.vo.Prefecture" />
 
     </data>
 
@@ -30,9 +34,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickChugokuPrefecture.invoke(30)}"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(Prefecture.Tottori)}"
             android:text="@string/prefecture_tottori"
-            app:canSelectPrefecture="@{isChugokuClickable.tottori}"
+            app:canSelectPrefecture="@{chugokuPrefecturesState[Prefecture.Tottori.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/shimane"
@@ -43,9 +47,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickChugokuPrefecture.invoke(31)}"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(Prefecture.Okayama)}"
             android:text="@string/prefecture_okayama"
-            app:canSelectPrefecture="@{isChugokuClickable.okayama}"
+            app:canSelectPrefecture="@{chugokuPrefecturesState[Prefecture.Okayama.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/hiroshima"
@@ -56,9 +60,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickChugokuPrefecture.invoke(32)}"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(Prefecture.Shimane)}"
             android:text="@string/prefecture_shimane"
-            app:canSelectPrefecture="@{isChugokuClickable.shimane}"
+            app:canSelectPrefecture="@{chugokuPrefecturesState[Prefecture.Shimane.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/tottori"
             app:layout_constraintStart_toEndOf="@id/yamaguchi"
@@ -69,9 +73,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickChugokuPrefecture.invoke(33)}"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(Prefecture.Hiroshima)}"
             android:text="@string/prefecture_hiroshima"
-            app:canSelectPrefecture="@{isChugokuClickable.hiroshima}"
+            app:canSelectPrefecture="@{chugokuPrefecturesState[Prefecture.Hiroshima.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toStartOf="@id/okayama"
             app:layout_constraintStart_toEndOf="@id/yamaguchi"
@@ -82,9 +86,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:onClick="@{() -> onClickChugokuPrefecture.invoke(34)}"
+            android:onClick="@{() -> onClickChugokuPrefecture.invoke(Prefecture.Yamaguchi)}"
             android:text="@string/prefecture_yamaguchi"
-            app:canSelectPrefecture="@{isChugokuClickable.yamaguchi}"
+            app:canSelectPrefecture="@{chugokuPrefecturesState[Prefecture.Yamaguchi.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/hiroshima"

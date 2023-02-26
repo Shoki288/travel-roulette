@@ -8,12 +8,16 @@
             type="Boolean" />
 
         <variable
-            name="isChubuClickable"
-            type="com.example.travel_roulette.vo.PrefectureSeed" />
+            name="chubuSidePrefecturesState"
+            type="List&lt;com.example.travel_roulette.vo.PrefectureState>" />
 
         <variable
             name="onClickChubuSidePrefecture"
             type="com.example.travel_roulette.binding_adapter.SelectPrefectureListener" />
+
+        <import type="java.util.List" />
+
+        <import type="com.example.travel_roulette.vo.Prefecture" />
 
     </data>
 
@@ -28,9 +32,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickChubuSidePrefecture.invoke(21)}"
+            android:onClick="@{() -> onClickChubuSidePrefecture.invoke(Prefecture.Ishikawa)}"
             android:text="@string/prefecture_ishikawa"
-            app:canSelectPrefecture="@{isChubuClickable.ishikawa}"
+            app:canSelectPrefecture="@{chubuSidePrefecturesState[Prefecture.Ishikawa.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +45,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickChubuSidePrefecture.invoke(22)}"
+            android:onClick="@{() -> onClickChubuSidePrefecture.invoke(Prefecture.Hukui)}"
             android:text="@string/prefecture_hukui"
-            app:canSelectPrefecture="@{isChubuClickable.hukui}"
+            app:canSelectPrefecture="@{chubuSidePrefecturesState[Prefecture.Hukui.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

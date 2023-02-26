@@ -23,10 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:isAreaMap="@{true}"
-            app:isChugokuClickable="@{viewModel.prefectureInArea}"
+            app:chugokuPrefecturesState="@{viewModel.prefectureInArea}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:onClickChugokuPrefecture="@{(index) -> viewModel.onClickChugoku(index)}" />
+            app:onClickChugokuPrefecture="@{(index) -> viewModel.onClickPrefecture(index)}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

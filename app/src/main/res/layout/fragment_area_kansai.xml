@@ -19,10 +19,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:isAreaMap="@{true}"
-            app:isKansaiClickable="@{viewModel.prefectureInArea}"
+            app:kansaiPrefecturesState="@{viewModel.prefectureInArea}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:onClickKansaiPrefecture="@{(index) -> viewModel.onClickKansai(index)}" />
+            app:onClickKansaiPrefecture="@{(index) -> viewModel.onClickPrefecture(index)}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

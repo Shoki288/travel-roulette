@@ -9,12 +9,16 @@
             type="Boolean" />
 
         <variable
-            name="isChubuClickable"
-            type="com.example.travel_roulette.vo.PrefectureSeed" />
+            name="chubuPrefecturesState"
+            type="List&lt;com.example.travel_roulette.vo.PrefectureState>" />
 
         <variable
             name="onClickChubuPrefecture"
             type="com.example.travel_roulette.binding_adapter.SelectPrefectureListener" />
+
+        <import type="java.util.List" />
+
+        <import type="com.example.travel_roulette.vo.Prefecture" />
 
     </data>
 
@@ -28,12 +32,12 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:onClick="@{() -> onClickChubuPrefecture.invoke(14)}"
+            android:onClick="@{() -> onClickChubuPrefecture.invoke(Prefecture.Nigata)}"
             android:text="@string/prefecture_nigata"
+            app:canSelectPrefecture="@{chubuPrefecturesState[Prefecture.Nigata.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isChubuClickable.nigata}"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/nagano"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/toyama"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,10 +46,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:onClick="@{() -> onClickChubuPrefecture.invoke(15)}"
+            android:onClick="@{() -> onClickChubuPrefecture.invoke(Prefecture.Nagano)}"
             android:text="@string/prefecture_nagano"
+            app:canSelectPrefecture="@{chubuPrefecturesState[Prefecture.Nagano.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isChubuClickable.nagano}"
             app:layout_constraintBottom_toTopOf="@id/yamanashi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/gihu"
@@ -56,9 +60,9 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:onClick="@{() -> onClickChubuPrefecture.invoke(16)}"
+            android:onClick="@{() -> onClickChubuPrefecture.invoke(Prefecture.Yamanashi)}"
             android:text="@string/prefecture_yamanashi"
-            app:canSelectPrefecture="@{isChubuClickable.yamanashi}"
+            app:canSelectPrefecture="@{chubuPrefecturesState[Prefecture.Yamanashi.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
             app:layout_constraintBottom_toTopOf="@id/shizuoka"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,17 +74,17 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="aichi,yamanashi"/>
+            app:constraint_referenced_ids="aichi,yamanashi" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/shizuoka"
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickChubuPrefecture.invoke(17)}"
+            android:onClick="@{() -> onClickChubuPrefecture.invoke(Prefecture.Shizuoka)}"
             android:text="@string/prefecture_shizuoka"
+            app:canSelectPrefecture="@{chubuPrefecturesState[Prefecture.Shizuoka.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isChubuClickable.shizuoka}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -92,10 +96,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickChubuPrefecture.invoke(18)}"
+            android:onClick="@{() -> onClickChubuPrefecture.invoke(Prefecture.Toyama)}"
             android:text="@string/prefecture_toyama"
+            app:canSelectPrefecture="@{chubuPrefecturesState[Prefecture.Toyama.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isChubuClickable.toyama}"
             app:layout_constraintEnd_toStartOf="@id/nigata"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -105,10 +109,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:onClick="@{() -> onClickChubuPrefecture.invoke(19)}"
+            android:onClick="@{() -> onClickChubuPrefecture.invoke(Prefecture.Gihu)}"
             android:text="@string/prefecture_gihu"
+            app:canSelectPrefecture="@{chubuPrefecturesState[Prefecture.Gihu.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isChubuClickable.gihu}"
             app:layout_constraintBottom_toBottomOf="@id/nagano"
             app:layout_constraintEnd_toStartOf="@id/nagano"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,10 +123,10 @@
             style="@style/WhiteOutLinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> onClickChubuPrefecture.invoke(20)}"
+            android:onClick="@{() -> onClickChubuPrefecture.invoke(Prefecture.Aichi)}"
             android:text="@string/prefecture_aichi"
+            app:canSelectPrefecture="@{chubuPrefecturesState[Prefecture.Aichi.ordinal()]}"
             app:isDisable="@{!isAreaMap}"
-            app:canSelectPrefecture="@{isChubuClickable.aichi}"
             app:layout_constraintEnd_toStartOf="@id/yamanashi"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/gihu" />
