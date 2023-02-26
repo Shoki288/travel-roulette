@@ -10,8 +10,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    private val _prefectureInArea =
-        MutableStateFlow<List<PrefectureState>>(PrefectureState.allPrefecture)
+    private val _prefectureInArea = MutableStateFlow<List<PrefectureState>>(PrefectureState.allPrefecture)
     val prefectureInArea = _prefectureInArea.asStateFlow()
 
     val hokkaidoState =
