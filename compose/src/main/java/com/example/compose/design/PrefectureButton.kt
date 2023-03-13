@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.compose.vo.Prefecture
 
@@ -23,6 +24,7 @@ fun PrefectureButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     prefecture: Prefecture,
+    textPadding: Dp = 4.dp
 ) {
     Box(
         modifier = modifier
@@ -40,7 +42,7 @@ fun PrefectureButton(
     ) {
         Text(
             modifier = Modifier
-                .padding(4.dp)
+                .padding(textPadding)
                 .align(Alignment.Center),
             text = prefecture.shortName,
             textAlign = TextAlign.Center

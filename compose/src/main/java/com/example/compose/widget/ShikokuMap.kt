@@ -21,19 +21,21 @@ fun ShikokuMap(
     val clickable by remember { mutableStateOf(prefectureClickable) }
 
     Row(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
     ) {
         Column(
             modifier = Modifier.weight(1f)
         ) {
             // 愛媛
             PrefectureButton(
+                modifier = Modifier.fillMaxWidth(),
                 onClick = { onClick?.invoke(Prefecture.Ehime) },
                 prefecture = Prefecture.Ehime,
                 enabled = clickable
             )
             // 高知
             PrefectureButton(
+                modifier = Modifier.fillMaxWidth(),
                 onClick = { onClick?.invoke(Prefecture.Kochi) },
                 prefecture = Prefecture.Kochi,
                 enabled = clickable
@@ -44,12 +46,14 @@ fun ShikokuMap(
         ) {
             // 香川
             PrefectureButton(
+                modifier = Modifier.fillMaxWidth(),
                 onClick = { onClick?.invoke(Prefecture.Kagawa) },
                 prefecture = Prefecture.Kagawa,
                 enabled = clickable
             )
             // 徳島
             PrefectureButton(
+                modifier = Modifier.fillMaxWidth(),
                 onClick = { onClick?.invoke(Prefecture.Tokushima) },
                 prefecture = Prefecture.Tokushima,
                 enabled = clickable

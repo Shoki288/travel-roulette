@@ -20,10 +20,11 @@ fun ChubuSideMap(
     val clickable by remember { mutableStateOf(prefectureClickable) }
 
     Column(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
     ) {
         // 石川
         PrefectureButton(
+            modifier = Modifier.fillMaxWidth(),
             onClick = { onClick?.invoke(Prefecture.Ishikawa) },
             prefecture = Prefecture.Ishikawa,
             enabled = clickable
@@ -31,6 +32,7 @@ fun ChubuSideMap(
 
         // 福井
         PrefectureButton(
+            modifier = Modifier.fillMaxWidth(),
             onClick = { onClick?.invoke(Prefecture.Hukui) },
             prefecture = Prefecture.Hukui,
             enabled = clickable

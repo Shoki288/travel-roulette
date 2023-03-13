@@ -38,14 +38,18 @@ fun ChugokuMap(
         ) {
             // 鳥取
             PrefectureButton(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
                 onClick = { onClick?.invoke(Prefecture.Tottori) },
                 prefecture = Prefecture.Tottori,
                 enabled = clickable
             )
             // 広島
             PrefectureButton(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
                 onClick = { onClick?.invoke(Prefecture.Hiroshima) },
                 prefecture = Prefecture.Hiroshima,
                 enabled = clickable
@@ -57,14 +61,18 @@ fun ChugokuMap(
         ) {
             // 島根
             PrefectureButton(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
                 onClick = { onClick?.invoke(Prefecture.Shimane) },
                 prefecture = Prefecture.Shimane,
                 enabled = clickable
             )
             // 岡山
             PrefectureButton(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
                 onClick = { onClick?.invoke(Prefecture.Okayama) },
                 prefecture = Prefecture.Okayama,
                 enabled = clickable

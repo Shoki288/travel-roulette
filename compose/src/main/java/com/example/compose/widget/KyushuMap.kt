@@ -19,7 +19,7 @@ fun KyushuMap(
     val clickable by remember { mutableStateOf(prefectureClickable) }
 
     Column(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),

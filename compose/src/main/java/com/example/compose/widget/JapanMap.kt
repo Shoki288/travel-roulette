@@ -28,11 +28,9 @@ fun JapanMapRoot(
 
         val tohokuLine = createGuidelineFromStart(0.85f)
         val chubuLine = createGuidelineFromStart(0.7f)
-        val chubuSideLine = createGuidelineFromStart(0.6f)
-        val kansaiLine = createGuidelineFromStart(0.4f)
+        val chubuSideLine = createGuidelineFromStart(0.63f)
+        val kansaiLine = createGuidelineFromStart(0.45f)
         val chugokuLine = createGuidelineFromStart(0.2f)
-
-        // TODO 中央表示とかやりたいならConstraintではなくてもいいかも
 
         // 北海道
         PrefectureButton(
@@ -43,7 +41,8 @@ fun JapanMapRoot(
             },
             onClick = {},
             prefecture = Prefecture.Hokkaido,
-            enabled = true
+            enabled = true,
+            textPadding = 8.dp
         )
 
         // 東北
@@ -178,7 +177,8 @@ fun JapanMapRoot(
             },
             onClick = { },
             prefecture = Prefecture.Okinawa,
-            enabled = true
+            enabled = true,
+            textPadding = 8.dp
         )
     }
 }
