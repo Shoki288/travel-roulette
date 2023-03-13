@@ -14,13 +14,14 @@ import com.example.compose.vo.Prefecture
 
 @Composable
 fun ShikokuMap(
+    modifier: Modifier = Modifier,
     onClick: ((Prefecture) -> Unit)? = null,
     prefectureClickable: Boolean = false
 ) {
     val clickable by remember { mutableStateOf(prefectureClickable) }
 
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth()
     ) {
         Column(
             modifier = Modifier.weight(1f)

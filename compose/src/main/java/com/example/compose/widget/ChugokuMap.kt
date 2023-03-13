@@ -12,13 +12,14 @@ import com.example.compose.vo.Prefecture
 
 @Composable
 fun ChugokuMap(
+    modifier: Modifier = Modifier,
     onClick: ((Prefecture) -> Unit)? = null,
     prefectureClickable: Boolean = false
 ) {
     val clickable by remember { mutableStateOf(prefectureClickable) }
 
     Row(
-        modifier = Modifier
+        modifier = modifier
             .height(IntrinsicSize.Min)
             .fillMaxWidth()
     ) {

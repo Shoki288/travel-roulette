@@ -14,13 +14,14 @@ import com.example.compose.vo.Prefecture
 
 @Composable
 fun ChubuMap(
+    modifier: Modifier = Modifier,
     onClick: ((Prefecture) -> Unit)? = null,
     prefectureClickable: Boolean = false
 ) {
     val clickable by remember { mutableStateOf(prefectureClickable) }
 
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth()
     ) {
 
         Row {

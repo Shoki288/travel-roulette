@@ -1,15 +1,16 @@
 package com.example.compose.widget
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.example.compose.design.PrefectureButton
+import com.example.compose.ui.theme.TravelRouletteComposeTheme
 import com.example.compose.vo.Area
 import com.example.compose.vo.Prefecture
 
@@ -60,7 +61,7 @@ fun JapanMapRoot(
         )
 
         // 関東
-        Box(
+        KantoMap(
             modifier = Modifier
                 .constrainAs(kantoRef) {
                     top.linkTo(tohokuRef.bottom)
@@ -73,12 +74,10 @@ fun JapanMapRoot(
                         onClickArea(Area.Kanto)
                     }
                 )
-        ) {
-            KantoMap()
-        }
+        )
 
         // 中部
-        Box(
+        ChubuMap(
             modifier = Modifier
                 .constrainAs(chubuRef) {
                     top.linkTo(kantoRef.top)
@@ -91,10 +90,8 @@ fun JapanMapRoot(
                         onClickArea(Area.Chubu)
                     }
                 )
-        ) {
-            ChubuMap()
-        }
-        Box(
+        )
+        ChubuSideMap(
             modifier = Modifier
                 .constrainAs(chubuSideRef) {
                     top.linkTo(chubuRef.top)
@@ -107,12 +104,10 @@ fun JapanMapRoot(
                         onClickArea(Area.Chubu)
                     }
                 )
-        ) {
-            ChubuSideMap()
-        }
+        )
 
         // 関西
-        Box(
+        KansaiMap(
             modifier = Modifier
                 .constrainAs(kansaiRef) {
                     top.linkTo(chubuSideRef.bottom)
@@ -125,12 +120,10 @@ fun JapanMapRoot(
                         onClickArea(Area.Kansai)
                     }
                 )
-        ) {
-            KansaiMap()
-        }
+        )
 
         // 中国
-        Box(
+        ChugokuMap(
             modifier = Modifier
                 .constrainAs(chugokuRef) {
                     start.linkTo(chugokuLine)
@@ -143,12 +136,10 @@ fun JapanMapRoot(
                         onClickArea(Area.Chugoku)
                     }
                 )
-        ) {
-            ChugokuMap()
-        }
+        )
 
         // 四国
-        Box(
+        ShikokuMap(
             modifier = Modifier
                 .constrainAs(shikokuRef) {
                     top.linkTo(chugokuRef.bottom, 4.dp)
@@ -161,12 +152,10 @@ fun JapanMapRoot(
                         onClickArea(Area.Shikoku)
                     }
                 )
-        ) {
-            ShikokuMap()
-        }
+        )
 
         // 九州
-        Box(
+        KyushuMap(
             modifier = Modifier
                 .constrainAs(kyushuRef) {
                     start.linkTo(parent.start)
@@ -179,9 +168,7 @@ fun JapanMapRoot(
                         onClickArea(Area.Kyushu)
                     }
                 )
-        ) {
-            KyushuMap()
-        }
+        )
 
         // 沖縄
         PrefectureButton(
@@ -193,5 +180,13 @@ fun JapanMapRoot(
             prefecture = Prefecture.Okinawa,
             enabled = true
         )
+    }
+}
+
+@Preview
+@Composable
+private fun Preview() {
+    TravelRouletteComposeTheme {
+        JapanMapRoot(onClickArea = {})
     }
 }

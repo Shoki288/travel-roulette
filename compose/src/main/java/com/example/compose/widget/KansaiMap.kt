@@ -14,12 +14,15 @@ import com.example.compose.vo.Prefecture
 
 @Composable
 fun KansaiMap(
+    modifier: Modifier = Modifier,
     onClick: ((Prefecture) -> Unit)? = null,
     prefectureClickable: Boolean = false
 ) {
     val clickable by remember { mutableStateOf(prefectureClickable) }
 
-    Column {
+    Column(
+        modifier = modifier
+    ) {
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {

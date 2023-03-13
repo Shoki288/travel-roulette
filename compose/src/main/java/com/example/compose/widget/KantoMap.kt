@@ -18,7 +18,9 @@ fun KantoMap(
 ) {
     val clickable by remember { mutableStateOf(prefectureClickable) }
 
-    Column {
+    Column(
+        modifier = modifier
+    ) {
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -87,8 +89,8 @@ fun KantoMap(
             // 千葉
             PrefectureButton(
                 modifier = Modifier
-                    .fillMaxHeight()
-                    .weight(1f),
+                    .weight(1f)
+                    .fillMaxHeight(),
                 onClick = { onClick?.invoke(Prefecture.Chiba) },
                 prefecture = Prefecture.Chiba,
                 enabled = clickable
